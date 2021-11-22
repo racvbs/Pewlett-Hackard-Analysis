@@ -9,16 +9,16 @@ SELECT e.emp_no,
 	   tl.title,
 	   tl.from_date,
 	   tl.to_date
-INTO retire_employees	   
+INTO retire_titles	   
 FROM employees as e
 INNER JOIN  titles as tl
 ON (e.emp_no = tl.emp_no)
 WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31')
 ORDER BY e.emp_no; 
 
--- Count the 133,776 rows form retire_employees
-SELECT * FROM retire_employees;
-SELECT COUNT(last_name) from retiremeretire_employees; 
+-- Count the 133,776 rows form retire_titles
+SELECT * FROM retire_titles;
+SELECT COUNT(last_name) from retire_titles; 
 
 -- Use Dictinct with Orderby to remove duplicate rows
 SELECT DISTINCT ON (rt.emp_no) rt.emp_no,
@@ -26,7 +26,7 @@ SELECT DISTINCT ON (rt.emp_no) rt.emp_no,
 	rt.last_name,
 	rt.title
 INTO retirement_employees_unique
-FROM retire_employees as rt
+FROM retire_titles as rt
 ORDER BY rt.emp_no, rt.to_date DESC;
 
 
@@ -36,14 +36,14 @@ SELECT COUNT(last_name) from retirement_employees_unique;
 
 -- Create a table resume count group by titles name
 SELECT COUNT(rut.title), rut.title
-INTO retiring_titles
+INTO retire_titles
 FROM retirement_employees_unique as rut
 GROUP BY rut.title
 ORDER BY COUNT(rut.title) DESC;
 
 -- Count the 90,398 rows form retiring_titles;
-SELECT * FROM retiring_titles;
-SELECT SUM(count) from retiring_titles; 
+SELECT * FROM retire_titles;
+SELECT SUM(count) from retire_titles; 
 
 -- Create a table for the eligibilty employees for mentorship
 SELECT DISTINCT ON (e.emp_no) e.emp_no,
@@ -71,7 +71,7 @@ SELECT COUNT(last_name) from mentorship;
 SELECT count(e.first_name),
 	d.dept_name,
 	tl.title
-INTO retirement_resume_dept_title
+INTO retirement_title_summary
 FROM employees as e
 INNER JOIN dept_emp as de
 ON (e.emp_no = de.emp_no)
