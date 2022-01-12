@@ -3,8 +3,8 @@ Module 7 - Challenge
 
 ## Purpose
 
-The Pewlett Hackard analysis deep need to organize all the data the company generates.
-That's the reason why set up all the tools in they analysis' eviroment:
+The Pewlett Hackard analysis dept. need to organize all the data the company generates.
+That's the reason why they ask to build their analysis' enviroment as follows:
 
 - Postgresql
 - Visual Studio
