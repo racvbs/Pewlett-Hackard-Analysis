@@ -3,12 +3,12 @@ Module 7 - Challenge
 
 ## Purpose
 
-The Pewlett Hackard analysis dep need to organize all the data the company generates.
+The Pewlett Hackard analysis deep need to organize all the data the company generates.
 That's the reason why set up all the tools in they analysis' eviroment:
 
 - Postgresql
 - Visual Studio
-- csv files in order on the database
+- csv files uploaded on the database
 
 ### Information
 
